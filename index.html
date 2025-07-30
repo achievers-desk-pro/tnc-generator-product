@@ -37,6 +37,37 @@
     <a href="https://tncgenerator.achieversdeskpro.com" class="btn-primary text-lg">Generate My Terms Now</a>
   </section>
 
+  <!-- Demo Video Section (lazy-loaded) -->
+<section id="demo-video" class="bg-white py-12">
+  <div class="max-w-4xl mx-auto text-center px-6">
+    <h3 class="text-2xl font-bold mb-4">Watch It in Action</h3>
+    <p class="mb-6">
+      See how quickly you can draft compliant Terms&nbsp;&amp;&nbsp;Conditions with AI assistance.
+    </p>
+
+    <!-- 16:9 responsive wrapper -->
+    <div class="relative pb-[56.25%] h-0 rounded-lg shadow-lg overflow-hidden">
+      <!-- Thumbnail (loads instantly) -->
+      <img
+        id="video-placeholder"
+        src="https://img.youtube.com/vi/LBodsK0iKZQ/hqdefault.jpg"
+        alt="T&amp;C Generator demo video"
+        class="absolute top-0 left-0 w-full h-full object-cover cursor-pointer"
+      />
+
+      <!-- Play button overlay -->
+      <button
+        id="play-button"
+        aria-label="Play demo video"
+        class="absolute inset-0 flex items-center justify-center text-white text-5xl"
+        style="background:rgba(0,0,0,.35)"
+      >
+        &#9658;
+      </button>
+    </div>
+  </div>
+</section>
+
   <!-- Why Choose Section -->
   <section class="max-w-6xl mx-auto py-12 px-6">
     <h3 class="text-2xl font-bold mb-6 text-center">Why Choose Our T&C Generator?</h3>
@@ -168,4 +199,26 @@
   </footer>
 
 </body>
+
+<script>
+  // Replace VIDEO_ID with your YouTube video ID (e.g. "dQw4w9WgXcQ")
+  const YT_ID = 'LBodsK0iKZQ';
+
+  document.getElementById('play-button').addEventListener('click', function () {
+    const wrapper = this.parentElement;          // the responsive div
+    const iframe = document.createElement('iframe');
+
+    iframe.src =
+      'https://www.youtube.com/embed/' + YT_ID + '?autoplay=1&rel=0&modestbranding=1';
+    iframe.title = 'T&C Generator Demo';
+    iframe.allow =
+      'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+    iframe.allowFullscreen = true;
+    iframe.className = 'absolute top-0 left-0 w-full h-full';
+
+    wrapper.innerHTML = '';                      // remove thumbnail + button
+    wrapper.appendChild(iframe);                 // insert the iframe
+  });
+</script>
+
 </html>
